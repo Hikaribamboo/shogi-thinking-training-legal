@@ -32,18 +32,84 @@
       a {
         color: #1d4ed8;
       }
+      .lang-switch {
+        display: flex;
+        gap: 10px;
+        margin: 18px 0 8px;
+      }
+      .lang-button {
+        border: 1px solid #cbd5e1;
+        background: #ffffff;
+        color: #334155;
+        border-radius: 999px;
+        padding: 6px 14px;
+        cursor: pointer;
+        font-size: 0.95rem;
+      }
+      .lang-button.active {
+        background: #1d4ed8;
+        color: #ffffff;
+        border-color: #1d4ed8;
+      }
+      .doc-list {
+        display: none;
+      }
+      .doc-list.active {
+        display: block;
+      }
     </style>
   </head>
   <body>
     <main>
-      <h1>将棋 次の一手トレ</h1>
-      <p>公開ドキュメント</p>
-      <ul>
+      <h1 id="app-title">将棋 次の一手トレ</h1>
+      <p id="page-subtitle">公開ドキュメント</p>
+
+      <div class="lang-switch" aria-label="Language Switch">
+        <button id="lang-ja" class="lang-button" type="button">日本語</button>
+        <button id="lang-en" class="lang-button" type="button">English</button>
+      </div>
+
+      <ul id="list-ja" class="doc-list">
         <li><a href="./privacy.html">プライバシーポリシー</a></li>
         <li><a href="./terms.html">利用規約</a></li>
         <li><a href="./licenses.html">ライセンス情報</a></li>
         <li><a href="./account-deletion.html">アカウント削除</a></li>
       </ul>
+
+      <ul id="list-en" class="doc-list">
+        <li><a href="./privacy-en.html">Privacy Policy</a></li>
+        <li><a href="./terms-en.html">Terms of Service</a></li>
+        <li><a href="./licenses-en.html">License Information</a></li>
+        <li><a href="./account-deletion-en.html">Account Deletion</a></li>
+      </ul>
     </main>
+
+    <script>
+      const title = document.getElementById("app-title");
+      const subtitle = document.getElementById("page-subtitle");
+      const jaButton = document.getElementById("lang-ja");
+      const enButton = document.getElementById("lang-en");
+      const jaList = document.getElementById("list-ja");
+      const enList = document.getElementById("list-en");
+
+      function setLanguage(lang) {
+        const useJapanese = lang !== "en";
+        document.documentElement.lang = useJapanese ? "ja" : "en";
+        title.textContent = useJapanese ? "将棋 次の一手トレ" : "Shogi Next Move Trainer";
+        subtitle.textContent = useJapanese ? "公開ドキュメント" : "Public Documents";
+
+        jaButton.classList.toggle("active", useJapanese);
+        enButton.classList.toggle("active", !useJapanese);
+        jaList.classList.toggle("active", useJapanese);
+        enList.classList.toggle("active", !useJapanese);
+
+        localStorage.setItem("docs-language", useJapanese ? "ja" : "en");
+      }
+
+      jaButton.addEventListener("click", () => setLanguage("ja"));
+      enButton.addEventListener("click", () => setLanguage("en"));
+
+      setLanguage(localStorage.getItem("docs-language") || "ja");
+    </script>
   </body>
 </html>
