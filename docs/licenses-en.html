@@ -52,12 +52,22 @@
       .note {
         color: #4b5563;
       }
+      .highlight-link {
+        margin-top: 1rem;
+        padding: 12px 14px;
+        border: 1px solid #bfdbfe;
+        background: #eff6ff;
+        border-radius: 10px;
+      }
+      .highlight-link p {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
     <main>
       <h1>License Information</h1>
-      <p class="meta">Shogi Next Move Trainer / Last Updated: March 9, 2026</p>
+      <p class="meta">Shogi Next Move Trainer / Last Updated: April 18, 2026</p>
 
       <section>
         <h2>1. Copyright of Puzzle Content</h2>
@@ -74,6 +84,11 @@
           <p>YaneuraOu</p>
           <p><a href="https://github.com/yaneurao/YaneuraOu" target="_blank" rel="noopener noreferrer">https://github.com/yaneurao/YaneuraOu</a></p>
           <p>License: GPLv3</p>
+        </div>
+        <p>This app actually uses YaneuraOu for analysis and puzzle generation processing.</p>
+        <div class="highlight-link">
+          <p>Public repository that explains how YaneuraOu is used in this app:</p>
+          <p><a href="https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git" target="_blank" rel="noopener noreferrer">https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git</a></p>
         </div>
         <p class="note">Engine name and license notation follow the engine actually used by this app.</p>
       </section>
@@ -103,6 +118,60 @@
           <li>Other OSS libraries</li>
         </ul>
         <p>Each license follows the license terms of the respective project.</p>
+      </section>
+
+      <section>
+        <h2>5. Scope of YaneuraOu Public Disclosure</h2>
+        <p>
+          This section defines what we provide to satisfy disclosure requirements related to YaneuraOu.
+        </p>
+        <p>
+          This repository is treated as the public package, with a clear boundary between in-scope and out-of-scope items.
+        </p>
+        <div class="highlight-link">
+          <p>Public repository:</p>
+          <p><a href="https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git" target="_blank" rel="noopener noreferrer">https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git</a></p>
+        </div>
+
+        <h2>6. In Scope</h2>
+        <ul>
+          <li>Android native integration</li>
+          <li>iOS native integration</li>
+          <li>YaneuraOu C++ source code</li>
+          <li>Build procedures</li>
+          <li>Version mapping</li>
+          <li>Verification records</li>
+        </ul>
+
+        <h2>7. Out of Scope</h2>
+        <ul>
+          <li>UI implementation of the main application</li>
+          <li>All source code for billing, authentication, analytics, and server integrations</li>
+          <li>Terms of Service</li>
+          <li>Privacy Policy</li>
+          <li>Secrets, signing keys, and local settings</li>
+          <li>Build artifacts and generated files (Pods, DerivedData, Gradle outputs)</li>
+        </ul>
+
+        <h2>8. Android Disclosure Scope</h2>
+        <p>Android currently uses an arm64-v8a runtime artifact.</p>
+        <p>Disclosure targets are placed in <code>yaneuraou/upstream/jni/</code>.</p>
+        <p>At runtime, it is handled as <code>libYaneuraOu.so</code>.</p>
+
+        <h2>9. iOS Disclosure Scope</h2>
+        <p>For iOS, <code>yaneuraou/upstream/source/</code> is included in disclosure targets.</p>
+        <p><code>main.cpp</code> is retained as a source mirror, but not used as the app-side entry point.</p>
+
+        <h2>10. Handling of nn.bin</h2>
+        <p><code>nn.bin</code> is not automatically included in disclosure targets because license confirmation may be required.</p>
+        <p>Please confirm redistribution permissions and conditions before publishing.</p>
+
+        <h2>11. Public Package Policy</h2>
+        <ul>
+          <li>Disclosure targets are completed within this repository.</li>
+          <li>The package is kept separate from the main application.</li>
+          <li>The core of the source offer is source code, diffs, build information, and verification information.</li>
+        </ul>
       </section>
     </main>
   </body>

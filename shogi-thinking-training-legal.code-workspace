@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "shogi-thinking-training-legal",
+			"path": "."
+		},
+		{
+			"name": "docs",
+			"path": "../../shogi-ai-coach/docs"
+		}
+	],
+	"settings": {}
+}

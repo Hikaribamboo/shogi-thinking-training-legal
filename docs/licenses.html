@@ -52,12 +52,22 @@
 			.note {
 				color: #4b5563;
 			}
+			.highlight-link {
+				margin-top: 1rem;
+				padding: 12px 14px;
+				border: 1px solid #bfdbfe;
+				background: #eff6ff;
+				border-radius: 10px;
+			}
+			.highlight-link p {
+				margin: 0;
+			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<h1>ライセンス情報</h1>
-			<p class="meta">将棋 次の一手トレ / 最終更新日: 2026年3月9日</p>
+			<p class="meta">将棋 次の一手トレ / 最終更新日: 2026年4月18日</p>
 
 			<section>
 				<h2>1. 問題コンテンツの著作権</h2>
@@ -72,6 +82,11 @@
 					<p>YaneuraOu</p>
 					<p><a href="https://github.com/yaneurao/YaneuraOu" target="_blank" rel="noopener noreferrer">https://github.com/yaneurao/YaneuraOu</a></p>
 					<p>License: GPLv3</p>
+				</div>
+				<p>本アプリでは YaneuraOu を実際の解析・生成処理に利用しています。</p>
+				<div class="highlight-link">
+					<p>YaneuraOu をアプリでどのように利用しているかの公開リポジトリ:</p>
+					<p><a href="https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git" target="_blank" rel="noopener noreferrer">https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git</a></p>
 				</div>
 				<p class="note">※実際に使用しているエンジン名・ライセンス表記に合わせて記載しています。</p>
 			</section>
@@ -101,6 +116,56 @@
 					<li>その他のOSSライブラリ</li>
 				</ul>
 				<p>各ライセンスはそれぞれのプロジェクトのライセンスに従います。</p>
+			</section>
+
+			<section>
+				<h2>5. YaneuraOu 公開対象の整理</h2>
+				<p>この節は、YaneuraOu 関連の公開義務対応として提供する内容を定義したものです。</p>
+				<p>このリポジトリを公開パッケージとして扱い、公開対象と対象外を明確にします。</p>
+				<div class="highlight-link">
+					<p>公開リポジトリ:</p>
+					<p><a href="https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git" target="_blank" rel="noopener noreferrer">https://github.com/Hikaribamboo/shogi-thinking-training-open-source.git</a></p>
+				</div>
+
+				<h2>6. 公開対象</h2>
+				<ul>
+					<li>Android の native 連携</li>
+					<li>iOS の native 連携</li>
+					<li>YaneuraOu の C++ ソース</li>
+					<li>ビルド手順</li>
+					<li>版数対応</li>
+					<li>動作確認記録</li>
+				</ul>
+
+				<h2>7. 対象外</h2>
+				<ul>
+					<li>アプリ本体の画面実装</li>
+					<li>課金、認証、分析、サーバー連携の全ソース</li>
+					<li>利用規約</li>
+					<li>プライバシーポリシー</li>
+					<li>秘密情報、署名鍵、ローカル設定</li>
+					<li>ビルド成果物、Pods、DerivedData、Gradle の生成物</li>
+				</ul>
+
+				<h2>8. Android の公開対象</h2>
+				<p>Android は現時点で arm64-v8a の実行用成果物を使っています。</p>
+				<p>公開対象は <code>yaneuraou/upstream/jni/</code> に配置します。</p>
+				<p>実行時には <code>libYaneuraOu.so</code> として扱います。</p>
+
+				<h2>9. iOS の公開対象</h2>
+				<p>iOS は <code>yaneuraou/upstream/source/</code> を公開対象にします。</p>
+				<p><code>main.cpp</code> もソース鏡として残しますが、アプリ側のエントリポイントとしては使いません。</p>
+
+				<h2>10. nn.bin の扱い</h2>
+				<p><code>nn.bin</code> はライセンス確認が必要な可能性があるため、自動で公開対象に含めません。</p>
+				<p>公開前に、配布可否と再配布条件を確認してください。</p>
+
+				<h2>11. 公開パッケージの考え方</h2>
+				<ul>
+					<li>このリポジトリ内で公開対象を完結させます。</li>
+					<li>アプリ本体とは分離して保ちます。</li>
+					<li>source offer の中心は、ソース、差分、ビルド情報、検証情報です。</li>
+				</ul>
 			</section>
 		</main>
 	</body>
